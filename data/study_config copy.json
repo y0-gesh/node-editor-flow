@@ -1,0 +1,78 @@
+{
+  "project_id": "10a4592c-8876-4102-9fde-e64eee16c7bb",
+  "boundaries": [
+    {
+      "name": "fixed",
+      "type": "Dirichlet",
+      "definition": {
+        "type": "Displacement Constraints",
+        "values": {
+          "UX": 0,
+          "UY": 0,
+          "UZ": 0
+        }
+      },
+      "assigned": [
+        "fixed_end"
+      ]
+    }
+  ],
+  "loads": [
+    {
+      "name": "Force Load",
+      "type": "Neumann",
+      "definition": {
+        "FX": 5,
+        "FY": 0,
+        "FZ": 0,
+        "type": "Force"
+      },
+      "assigned": [
+        "forced_end"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "name": "steel",
+      "properties": {
+        "type": "Linear Elastic",
+        "massDensity": 0.0,
+        "specificHeat": 0.0,
+        "heatCapacity": 0.0,
+        "thermalConductivity": 0.0,
+        "thermalExpansion": 0.0,
+        "E": 200000.0,
+        "nu": 0.7
+      },
+      "assigned": [
+        "Domain"
+      ]
+    },
+    {
+      "name": "aluminum",
+      "properties": {
+        "type": "Linear Elastic",
+        "massDensity": 0.0,
+        "specificHeat": 0.0,
+        "heatCapacity": 0.0,
+        "thermalConductivity": 0.0,
+        "thermalExpansion": 0.0,
+        "E": 205,
+        "nu": 0.7
+      },
+      "assigned": [
+        "fixed_end"
+      ]
+    }
+  ],
+  "mesh": {
+    "mesh_file": "uploads/07_cantelever_beam_3d/xdmf/mesh.xdmf",
+    "med_mesh_file": "uploads/07_cantelever_beam_3d/mesh/cantilever_beam_3d.med"
+  },
+  "output_folder": "uploads/07_cantelever_beam_3d/results",
+  "solver": {
+    "analysis_type": "3d_static_analysis"
+  },
+  "errors": []
+}
